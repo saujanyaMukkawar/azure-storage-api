@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: AzureStorageApi
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: AzureStorageApi
+  template:
+    metadata:
+      labels:
+        app: AzureStorageApi
+    spec:
+      containers:
+      - name: AzureStorageApi
+        image: <your-container-registry>/azure-storage-api:latest
+        ports:
+        - containerPort: 80
